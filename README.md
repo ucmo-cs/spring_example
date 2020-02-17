@@ -26,3 +26,31 @@ API for handling the Car objects in the application.
 * React
 * react-router-dom
 
+# Frontend Build
+
+There are 3 maven rules that are used to build the frontend:
+
+     mvn frontend:install-node-and-npm
+
+If this is executed from the command line (or your IDE maven interface)
+it will install Node.js and npm in your project directory.  This only
+needs to be rerun after the first time if you change the version of node
+specified in your pom.xml file.
+
+     mvn frontend:nom
+
+If this is executed from the command line (or your IDE maven interface)
+it will the javascript packages specified in your package.json file.  This
+only needs to be rerun if that file is changed.
+
+     mvn frontend:webpack
+
+If this is executed from the command line (or your IDE maven interface)
+it will compile and package your javascript files into a single javascript
+file which will run on older as well as current browsers.  It should be rerun
+each time your frontend application is changed, before rerunning the backend
+server project.
+
+
+
+
