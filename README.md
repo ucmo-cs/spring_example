@@ -8,21 +8,21 @@ The root page "/" is handled by a standard Spring Web Controller, HomeController
 The React application running on that page uses a Spring REST Controller with a "/cars" mapping to access the
 API for handling the Car objects in the application.
 
-Spring Packages Used:
+# Spring Packages Used:
 
-Spring Boot
-Spring Web
-Spring Thymeleaf
-Spring Data JPA
-Spring Devtools
-MySQL Connector
-frontend-maven-plugin for React development
+* Spring Boot
+* Spring Web
+* Spring Thymeleaf
+* Spring Data JPA
+* Spring Devtools
+* MySQL Connector
+* frontend-maven-plugin for React development
 
-JS Packages Used:
+# JS Packages Used:
 
-Babel
-Webpack
-Axios
-React
-react-router-dom
+* Babel
+* Webpack
+* Axios
+* React
+* react-router-dom
 
