@@ -37,7 +37,7 @@ it will install Node.js and npm in your project directory.  This only
 needs to be rerun after the first time if you change the version of node
 specified in your pom.xml file.
 
-     mvn frontend:nom
+     mvn frontend:npm
 
 If this is executed from the command line (or your IDE maven interface)
 it will the javascript packages specified in your package.json file.  This
