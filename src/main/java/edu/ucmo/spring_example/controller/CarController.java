@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+//@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("cars")
 public class CarController {
@@ -16,12 +16,12 @@ public class CarController {
     private CarService carService;
 
     @PostMapping
-    public Car saveUser(@RequestBody Car car){
+    public Car saveCar(@RequestBody Car car){
         return carService.save(car);
     }
 
     @GetMapping
-    public List<Car> listCser(){
+    public List<Car> listCars(){
         return carService.findAll();
     }
 
@@ -31,7 +31,7 @@ public class CarController {
     }
 
     @GetMapping("/make/{make}")
-    public List<Car> getOne(@PathVariable String make){
+    public List<Car> getMake(@PathVariable String make){
         return carService.findByMake(make);
     }
 
