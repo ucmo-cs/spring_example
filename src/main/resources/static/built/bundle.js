@@ -38164,6 +38164,11 @@ function (_Component) {
   }
 
   _createClass(AddComponent, [{
+    key: "validate",
+    value: function validate() {
+      return this.state.year >= 1900 && this.state.year <= 2020;
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
@@ -38176,7 +38181,8 @@ function (_Component) {
         name: "make",
         className: "form-control",
         value: this.state.make,
-        onChange: this.onChange
+        onChange: this.onChange,
+        required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Model:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -38184,7 +38190,8 @@ function (_Component) {
         name: "model",
         className: "form-control",
         value: this.state.model,
-        onChange: this.onChange
+        onChange: this.onChange,
+        required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Year:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -38192,9 +38199,13 @@ function (_Component) {
         name: "year",
         className: "form-control",
         value: this.state.year,
-        onChange: this.onChange
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onChange: this.onChange,
+        required: true
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("font", {
+        color: "red"
+      }, !this.validate() ? 'Year Error: Year must be >= 1900 and <=2020' : "")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn btn-success",
+        disabled: !this.validate(),
         onClick: this.saveCar
       }, "Save")));
     }
@@ -38308,6 +38319,11 @@ function (_Component) {
       });
     }
   }, {
+    key: "validate",
+    value: function validate() {
+      return this.state.year >= 1900 && this.state.year <= 2020;
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
@@ -38336,8 +38352,11 @@ function (_Component) {
         className: "form-control",
         value: this.state.year,
         onChange: this.onChange
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("font", {
+        color: "red"
+      }, !this.validate() ? 'Year Error: Year must be >= 1900 and <=2020' : "")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn btn-success",
+        disabled: !this.validate(),
         onClick: this.saveCar
       }, "Save")));
     }

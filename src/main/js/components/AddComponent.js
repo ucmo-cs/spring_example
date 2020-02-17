@@ -27,6 +27,10 @@ class AddComponent extends Component{
     onChange = (e) =>
         this.setState({ [e.target.name]: e.target.value });
 
+    validate() {
+        return this.state.year >= 1900 && this.state.year <=2020;
+    }
+
     render() {
         return(
             <div>
@@ -45,9 +49,10 @@ class AddComponent extends Component{
                     <div className="form-group">
                         <label>Year:</label>
                         <input placeholder="1999" name="year" className="form-control" value={this.state.year} onChange={this.onChange} required/>
+                        <font color="red">{!this.validate() ? 'Year Error: Year must be >= 1900 and <=2020' : ""}</font>
                     </div>
 
-                    <button className="btn btn-success" onClick={this.saveCar}>Save</button>
+                    <button className="btn btn-success" disabled={!this.validate()} onClick={this.saveCar}>Save</button>
                 </form>
             </div>
         );
