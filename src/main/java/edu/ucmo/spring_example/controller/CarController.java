@@ -1,47 +1,56 @@
 package edu.ucmo.spring_example.controller;
 
 import edu.ucmo.spring_example.model.Car;
-import edu.ucmo.spring_example.service.CarService;
+import edu.ucmo.spring_example.dao.CarDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-//@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("cars")
 public class CarController {
 
     @Autowired
-    private CarService carService;
+    private CarDao carDao;
 
     @PostMapping
     public Car saveCar(@RequestBody Car car){
-        return carService.save(car);
+        Car newCar = new Car(car.getMake(), car.getModel(), car.getYear());
+        return carDao.save(newCar);
     }
 
     @GetMapping
     public List<Car> listCars(){
-        return carService.findAll();
+        List<Car> list = new ArrayList<>();
+        carDao.findAll().iterator().forEachRemaining(list::add);
+        return list;
     }
 
     @GetMapping("/{id}")
     public Car getOne(@PathVariable int id){
-        return carService.findById(id);
+        Optional<Car> optionalCar = carDao.findById(id);
+        return optionalCar.isPresent() ? optionalCar.get() : null;
     }
 
     @GetMapping("/make/{make}")
     public List<Car> getMake(@PathVariable String make){
-        return carService.findByMake(make);
+        return carDao.findByMake(make);
     }
 
     @PutMapping("/{id}")
-    public Car update(@RequestBody Car car) {
-        return carService.update(car);
+    public Car update(@RequestBody Car carUpdate) {
+        Optional<Car> optionalCar = carDao.findById(carUpdate.getId());
+        if (optionalCar.isPresent()) {
+            carDao.save(carUpdate);
+        }
+        return carUpdate;
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable int id) {
-        carService.delete(id);
+        carDao.deleteById(id);
      }
 }
