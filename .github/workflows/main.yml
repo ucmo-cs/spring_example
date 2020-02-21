@@ -17,4 +17,4 @@ jobs:
       with:
         java-version: 1.8
     - name: Build JDK 8 projects
-      run: mvn -B -f $project/pom.xml verify
+      run: mvn -B -f pom.xml verify
