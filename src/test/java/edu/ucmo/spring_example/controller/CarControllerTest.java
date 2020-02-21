@@ -49,7 +49,7 @@ public class CarControllerTest {
         carController.update(car);
 
         Car savedCar = carController.getOne(car.getId());
-        assertEquals(car.getYear()+1, savedCar.getYear());
+        assertEquals(car.getYear(), savedCar.getYear());
 
         carController.delete(car.getId());
     }
