@@ -41,17 +41,17 @@ public class CarControllerTest {
 
     @Test
     public void testUpdate() {
-        Car car = new Car("Rolls Royce", "Silver Shadow", 1965);
+        Car car = new Car("Rolls Royce", "Silver Ghost", 1906);
         car = carController.saveCar(car);
         assertNotNull(car.getId());
 
-        car.setYear(1966);
+        car.setYear(1907);
         carController.update(car);
 
         Car savedCar = carController.getOne(car.getId());
-        assertEquals(car.getYear(), savedCar.getYear());
+        assertEquals(1907, savedCar.getYear());
 
-        carController.delete(car.getId());
+        carController.delete(savedCar.getId());
     }
 
 }
