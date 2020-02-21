@@ -6,9 +6,17 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
@@ -20,6 +28,33 @@ public class CarControllerTest {
 
     @Autowired
     private CarDao carDao;
+
+    @Autowired
+    private JdbcTemplate template;
+
+    @Test
+    public void findOneThatDoesNotExist() {
+        Car car = carController.getOne(99999);
+        assertNull(car);
+    }
+
+    @Test
+    public void findOneThatExists() {
+        template.query("select id from car", (rs, num) -> rs.getInt("id"))
+                .forEach(id -> {
+                    Car car = carController.getOne(id);
+                    assertNotNull(car);
+                    assertEquals(id, car.getId());
+                });
+    }
+
+    @Test
+    public void findAll() {
+        List<String> dbNames = StreamSupport.stream(carController.listCars().spliterator(), false)
+                .map(Car::getMake)
+                .collect(Collectors.toList());
+        assertThat(dbNames, containsInAnyOrder("Ford", "Acura", "Honda"));
+    }
 
     @Test
     public void testSaveDelete() {
