@@ -49,7 +49,8 @@ class ListComponent extends React.Component {
         window.localStorage.removeItem("carId");
         this.props.history.push('/add');
     }
-
+// Another comment
+    
     render() {
         return (
             <div>
