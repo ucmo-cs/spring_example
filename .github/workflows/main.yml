@@ -29,8 +29,4 @@ jobs:
     - name: Start Spring Boot server
       run: mvn -B -f pom.xml spring-boot:start
     - name: Run Newman tests
-      uses: matt-ball/newman-action@master
-      with:
-        collection: src/test/postman/SpringExampleCollection.postman_collection.json
-    - name: Stop Spring Boot server
-      run: mvn -B -f pom.xml spring-boot:stop
+      run: target/node/node node_modules/newman/bin/newman.js run src/test/postman/SpringExampleCollection.postman_collection.json
