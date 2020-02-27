@@ -26,6 +26,8 @@ jobs:
         java-version: 1.8
     - name: Build project with Maven
       run: mvn -B -f pom.xml verify
+    - name: Run Spring Boot project
+      run: mvn -B -f pom.xml spring-boot:run
     - name: Run Newman tests
       uses: matt-ball/newman-action@master
       with:

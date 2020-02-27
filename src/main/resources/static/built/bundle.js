@@ -38475,7 +38475,8 @@ function (_React$Component) {
     value: function addCar() {
       window.localStorage.removeItem("carId");
       this.props.history.push('/add');
-    }
+    } // Another comment
+
   }, {
     key: "render",
     value: function render() {
