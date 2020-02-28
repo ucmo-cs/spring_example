@@ -53,5 +53,14 @@ server project.
 
 # Tests
 
+The project performs 3 types of tests:  Unit tests for the Spring Controller,
+Postman integration tests for the API, and TestCafe end-to-end web tests.
+
+# Continuous Integration
+
+The project uses GitHub's Actions to verify the build of the Java and JavaScript
+portions of the project, as well as performing all 3 types of testing.
+
+
 
 
