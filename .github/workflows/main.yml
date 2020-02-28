@@ -30,3 +30,5 @@ jobs:
       run: mvn -B -f pom.xml spring-boot:start
     - name: Run Newman tests
       run: target/node/node node_modules/newman/bin/newman.js run src/test/postman/SpringExampleCollection.postman_collection.json
+    - name: Run TestCafe tests
+      run: target/node/node node_modules/testcafe/bin/testcafe.js firefox:headless src/test/testcafe/
