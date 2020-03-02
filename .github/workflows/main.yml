@@ -11,7 +11,7 @@ on:
 jobs:
   build-jdk8:
     runs-on: ubuntu-latest
-    name: Build Java
+    name: Build on Java 8 and Test
     steps:
     - uses: actions/checkout@v1
     - uses: actions/cache@v1
@@ -32,3 +32,7 @@ jobs:
       run: target/node/node node_modules/newman/bin/newman.js run src/test/postman/SpringExampleCollection.postman_collection.json
     - name: Run TestCafe tests
       run: target/node/node node_modules/testcafe/bin/testcafe.js firefox:headless src/test/testcafe/
+
+
+
+
