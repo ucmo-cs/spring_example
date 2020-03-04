@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ApiService from "../services/ApiService";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Modal from "react-bootstrap/Modal";
 
 class AddComponent extends Component{
 
@@ -29,14 +30,19 @@ class AddComponent extends Component{
     onChange = (e) =>
         this.setState({ [e.target.name]: e.target.value });
 
+    cancel= (e) => {
+        this.props.history.push('/');
+    }
+
     validate() {
         return this.state.year >= 1900 && this.state.year <=2020;
     }
 
     render() {
         return(
-            <div>
-                <h2 className="text-center">Add Car</h2>
+            <Modal.Dialog keyboard={true}>
+                <Modal.Header>Add Car</Modal.Header>
+                <Modal.Body>
                 <Form>
                     <Form.Group>
                     <Form.Label>Make:</Form.Label>
@@ -54,9 +60,11 @@ class AddComponent extends Component{
                         <font color="red">{!this.validate() ? 'Year Error: Year must be >= 1900 and <=2020' : ""}</font>
                     </Form.Group>
 
-                    <Button variant="success" disabled={!this.validate()} onClick={this.saveCar}>Save</Button>
+                    <Button variant="primary" disabled={!this.validate()} onClick={this.saveCar}>Save</Button>
+                    <Button variant="dark" onClick={this.cancel}>Cancel</Button>
                 </Form>
-            </div>
+                </Modal.Body>
+            </Modal.Dialog>
         );
     }
 }

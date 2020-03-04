@@ -56,7 +56,7 @@ class ListComponent extends React.Component {
         return (
             <div>
                 <h2 className="text-center">Car Details</h2>
-                <Button variant="danger" onClick={() => this.addCar()}> Add Car</Button>
+                <Button variant="primary" onClick={() => this.addCar()}> Add Car</Button>
                 <Table striped bordered hover>
                     <thead>
                     <tr>
@@ -76,8 +76,8 @@ class ListComponent extends React.Component {
                                     <td>{car.model}</td>
                                     <td>{car.year}</td>
                                     <td>
-                                        <Button variant="success" onClick={() => this.deleteCar(car.id)}> Delete</Button>
-                                        <Button variant="success" onClick={() => this.editCar(car.id)}> Edit</Button>
+                                        <Button variant="danger" onClick={() => this.deleteCar(car.id)}> Delete</Button>
+                                        <Button variant="primary" onClick={() => this.editCar(car.id)}> Edit</Button>
                                     </td>
                                 </tr> )
                     }
