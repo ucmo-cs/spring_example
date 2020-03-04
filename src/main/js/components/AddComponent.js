@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import ApiService from "../services/ApiService";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 class AddComponent extends Component{
 
@@ -35,25 +37,25 @@ class AddComponent extends Component{
         return(
             <div>
                 <h2 className="text-center">Add Car</h2>
-                <form>
-                    <div className="form-group">
-                        <label>Make:</label>
-                        <input type="text" placeholder="Make" name="make" className="form-control" value={this.state.make} onChange={this.onChange} required/>
-                    </div>
+                <Form>
+                    <Form.Group>
+                    <Form.Label>Make:</Form.Label>
+                        <Form.Control type="text" placeholder="Make" name="make" value={this.state.make} onChange={this.onChange} required/>
+                    </Form.Group>
 
-                    <div className="form-group">
-                        <label>Model:</label>
-                        <input placeholder="Model" name="model" className="form-control" value={this.state.model} onChange={this.onChange} required/>
-                    </div>
+                    <Form.Group>
+                        <Form.Label>Model:</Form.Label>
+                        <Form.Control placeholder="Model" name="model" value={this.state.model} onChange={this.onChange} required/>
+                    </Form.Group>
 
-                    <div className="form-group">
-                        <label>Year:</label>
-                        <input placeholder="1999" name="year" className="form-control" value={this.state.year} onChange={this.onChange} required/>
+                    <Form.Group>
+                        <Form.Label>Year:</Form.Label>
+                        <Form.Control placeholder="1999" name="year" value={this.state.year} onChange={this.onChange} required/>
                         <font color="red">{!this.validate() ? 'Year Error: Year must be >= 1900 and <=2020' : ""}</font>
-                    </div>
+                    </Form.Group>
 
-                    <button className="btn btn-success" disabled={!this.validate()} onClick={this.saveCar}>Save</button>
-                </form>
+                    <Button variant="success" disabled={!this.validate()} onClick={this.saveCar}>Save</Button>
+                </Form>
             </div>
         );
     }

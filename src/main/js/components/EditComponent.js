@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import ApiService from "../services/ApiService";
 
 class EditComponent extends Component {
@@ -53,26 +55,26 @@ class EditComponent extends Component {
         return (
             <div>
                 <h2 className="text-center">Edit Car</h2>
-                <form>
+                <Form>
 
-                    <div className="form-group">
-                        <label>Make:</label>
-                        <input placeholder="Make" name="make" className="form-control" value={this.state.make} onChange={this.onChange}/>
-                    </div>
+                    <Form.Group>
+                        <Form.Label>Make:</Form.Label>
+                        <Form.Control placeholder="Make" name="make" value={this.state.make} onChange={this.onChange}/>
+                    </Form.Group>
 
-                    <div className="form-group">
-                        <label>Model:</label>
-                        <input placeholder="Model" name="model" className="form-control" value={this.state.model} onChange={this.onChange}/>
-                    </div>
+                    <Form.Group>
+                        <Form.Label>Model:</Form.Label>
+                        <Form.Control placeholder="Model" name="model" value={this.state.model} onChange={this.onChange}/>
+                    </Form.Group>
 
-                    <div className="form-group">
-                        <label>Year:</label>
-                        <input placeholder="Year" name="year" className="form-control" value={this.state.year} onChange={this.onChange}/>
+                    <Form.Group>
+                        <Form.Label>Year:</Form.Label>
+                        <Form.Control placeholder="Year" name="year" value={this.state.year} onChange={this.onChange}/>
                         <font color="red">{!this.validate() ? 'Year Error: Year must be >= 1900 and <=2020' : ""}</font>
-                    </div>
+                    </Form.Group>
 
-                    <button className="btn btn-success" disabled={!this.validate()} onClick={this.saveCar}>Save</button>
-                </form>
+                    <Button variant="success" disabled={!this.validate()} onClick={this.saveCar}>Save</Button>
+                </Form>
             </div>
         );
     }

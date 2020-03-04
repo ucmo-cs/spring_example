@@ -1,5 +1,6 @@
 import ApiService from "../services/ApiService";
-
+import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
 const React = require('react');
 
 class ListComponent extends React.Component {
@@ -55,8 +56,8 @@ class ListComponent extends React.Component {
         return (
             <div>
                 <h2 className="text-center">Car Details</h2>
-                <button className="btn btn-danger" onClick={() => this.addCar()}> Add Car</button>
-                <table className="table table-striped">
+                <Button variant="danger" onClick={() => this.addCar()}> Add Car</Button>
+                <Table striped bordered hover>
                     <thead>
                     <tr>
                         <th>Id</th>
@@ -75,13 +76,13 @@ class ListComponent extends React.Component {
                                     <td>{car.model}</td>
                                     <td>{car.year}</td>
                                     <td>
-                                        <button className="btn btn-success" onClick={() => this.deleteCar(car.id)}> Delete</button>
-                                        <button className="btn btn-success" onClick={() => this.editCar(car.id)}> Edit</button>
+                                        <Button variant="success" onClick={() => this.deleteCar(car.id)}> Delete</Button>
+                                        <Button variant="success" onClick={() => this.editCar(car.id)}> Edit</Button>
                                     </td>
                                 </tr> )
                     }
                     </tbody>
-                </table>
+                </Table>
             </div>
         )
     }
