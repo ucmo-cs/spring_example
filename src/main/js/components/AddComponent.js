@@ -41,7 +41,9 @@ class AddComponent extends Component{
     render() {
         return(
             <Modal.Dialog keyboard={true}>
-                <Modal.Header>Add Car</Modal.Header>
+                <Modal.Header>
+                <Modal.Title>Add Car</Modal.Title>
+                </Modal.Header>
                 <Modal.Body>
                 <Form>
                     <Form.Group>

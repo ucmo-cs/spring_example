@@ -59,7 +59,9 @@ class EditComponent extends Component {
     render() {
         return (
             <Modal.Dialog keyboard={true}>
-                <Modal.Header>Edit Car</Modal.Header>
+                <Modal.Header>
+                    <Modal.Title>Edit Car</Modal.Title>
+                </Modal.Header>
                 <Modal.Body>
                 <Form>
 

@@ -76,7 +76,8 @@ class ListComponent extends React.Component {
                                     <td>{car.model}</td>
                                     <td>{car.year}</td>
                                     <td>
-                                        <Button variant="danger" onClick={() => this.deleteCar(car.id)}> Delete</Button>
+                                        <Button variant="dark" onClick={() => this.deleteCar(car.id)}> Delete</Button>
+                                        {' '}
                                         <Button variant="primary" onClick={() => this.editCar(car.id)}> Edit</Button>
                                     </td>
                                 </tr> )
