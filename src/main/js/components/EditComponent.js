@@ -58,7 +58,7 @@ class EditComponent extends Component {
 
     render() {
         return (
-            <Modal.Dialog keyboard={true}>
+            <Modal show={true}>
                 <Modal.Header>
                     <Modal.Title>Edit Car</Modal.Title>
                 </Modal.Header>
@@ -85,7 +85,7 @@ class EditComponent extends Component {
                     <Button variant="dark" onClick={this.cancel}>Cancel</Button>
                 </Form>
                 </Modal.Body>
-            </Modal.Dialog>
+            </Modal>
         );
     }
 }

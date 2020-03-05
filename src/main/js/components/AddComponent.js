@@ -40,7 +40,7 @@ class AddComponent extends Component{
 
     render() {
         return(
-            <Modal.Dialog keyboard={true}>
+            <Modal show={true}>
                 <Modal.Header>
                 <Modal.Title>Add Car</Modal.Title>
                 </Modal.Header>
@@ -66,7 +66,7 @@ class AddComponent extends Component{
                     <Button variant="dark" onClick={this.cancel}>Cancel</Button>
                 </Form>
                 </Modal.Body>
-            </Modal.Dialog>
+            </Modal>
         );
     }
 }
