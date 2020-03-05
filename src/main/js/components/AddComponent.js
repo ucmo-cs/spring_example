@@ -23,15 +23,19 @@ class AddComponent extends Component{
         ApiService.addCar(car)
             .then(res => {
                 this.setState({message : 'Car added successfully.'});
-                this.props.history.push('/');
+                this.close();
             });
     }
 
     onChange = (e) =>
         this.setState({ [e.target.name]: e.target.value });
 
-    cancel= (e) => {
-        this.props.history.push('/');
+    close() {
+        this.setState({ showModal: false });
+    }
+
+    open() {
+        this.setState({ showModal: true });
     }
 
     validate() {
@@ -40,7 +44,7 @@ class AddComponent extends Component{
 
     render() {
         return(
-            <Modal show={true}>
+            <Modal show={this.state.showModal}>
                 <Modal.Header>
                 <Modal.Title>Add Car</Modal.Title>
                 </Modal.Header>
@@ -63,7 +67,7 @@ class AddComponent extends Component{
                     </Form.Group>
 
                     <Button variant="primary" disabled={!this.validate()} onClick={this.saveCar}>Save</Button>
-                    <Button variant="dark" onClick={this.cancel}>Cancel</Button>
+                    <Button variant="dark" onClick={this.close}>Cancel</Button>
                 </Form>
                 </Modal.Body>
             </Modal>

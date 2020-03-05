@@ -8,17 +8,7 @@ const ReactDOM = require('react-dom');
 function App() {
 	return (
 		<div className="container">
-			<Router>
-				<div className="col-md-6">
-					<h1 className="text-center" style={style}>React Car Application</h1>
-					<Switch>
-						<Route path="/" exact component={ListComponent} />
-						<Route path="/list" component={ListComponent} />
-						<Route path="/add" component={AddComponent} />
-						<Route path="/edit" component={EditComponent} />
-					</Switch>
-				</div>
-			</Router>
+			<ListComponent />
 		</div>
 	);
 }

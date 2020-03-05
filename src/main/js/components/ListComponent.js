@@ -1,6 +1,8 @@
 import ApiService from "../services/ApiService";
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
+import AddComponent from "./AddComponent";
+import EditComponent from "./EditComponent";
 const React = require('react');
 
 class ListComponent extends React.Component {
@@ -15,6 +17,8 @@ class ListComponent extends React.Component {
         this.editCar = this.editCar.bind(this);
         this.addCar = this.addCar.bind(this);
         this.reloadCarList = this.reloadCarList.bind(this);
+        this.addComponent = React.createRef();
+        this.editComponent = React.createRef();
     }
 
     componentDidMount() {
@@ -56,7 +60,8 @@ class ListComponent extends React.Component {
         return (
             <div>
                 <h2 className="text-center">Car Details</h2>
-                <Button variant="primary" onClick={() => this.addCar()}> Add Car</Button>
+                <Button variant="primary" onClick={() => this.addComponent.current.open()}> Add Car</Button>
+                <AddComponent ref={this.addComponent}/>
                 <Table striped bordered hover>
                     <thead>
                     <tr>

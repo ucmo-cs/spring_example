@@ -44,12 +44,16 @@ class EditComponent extends Component {
         ApiService.editCar(car)
             .then(res => {
                 this.setState({message : 'Car added successfully.'});
-                this.props.history.push('/');
+                this.close();
             });
     }
 
-    cancel= (e) => {
-        this.props.history.push('/');
+    close() {
+        this.setState({ showModal: false });
+    }
+
+    open() {
+        this.setState({ showModal: true });
     }
 
     validate() {
@@ -58,7 +62,7 @@ class EditComponent extends Component {
 
     render() {
         return (
-            <Modal show={true}>
+            <Modal show={this.state.showModal}>
                 <Modal.Header>
                     <Modal.Title>Edit Car</Modal.Title>
                 </Modal.Header>
@@ -82,7 +86,7 @@ class EditComponent extends Component {
                     </Form.Group>
 
                     <Button variant="primary" disabled={!this.validate()} onClick={this.saveCar}>Save</Button>
-                    <Button variant="dark" onClick={this.cancel}>Cancel</Button>
+                    <Button variant="dark" onClick={this.close()}>Cancel</Button>
                 </Form>
                 </Modal.Body>
             </Modal>
