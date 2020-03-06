@@ -42455,6 +42455,8 @@ function (_Component) {
       message: null
     };
     _this.saveCar = _this.saveCar.bind(_assertThisInitialized(_this));
+    _this.close = _this.close.bind(_assertThisInitialized(_this));
+    _this.open = _this.open.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -42484,19 +42486,16 @@ function (_Component) {
         show: this.state.showModal
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_4__["default"].Header, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_4__["default"].Title, null, "Add Car")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_4__["default"].Body, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_3__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_3__["default"].Group, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_3__["default"].Label, null, "Make:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_3__["default"].Control, {
         type: "text",
-        placeholder: "Make",
         name: "make",
         value: this.state.make,
         onChange: this.onChange,
         required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_3__["default"].Group, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_3__["default"].Label, null, "Model:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_3__["default"].Control, {
-        placeholder: "Model",
         name: "model",
         value: this.state.model,
         onChange: this.onChange,
         required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_3__["default"].Group, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_3__["default"].Label, null, "Year:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_3__["default"].Control, {
-        placeholder: "1999",
         name: "year",
         value: this.state.year,
         onChange: this.onChange,
@@ -42603,15 +42602,12 @@ function (_Component) {
     };
     _this.saveCar = _this.saveCar.bind(_assertThisInitialized(_this));
     _this.loadCar = _this.loadCar.bind(_assertThisInitialized(_this));
+    _this.close = _this.close.bind(_assertThisInitialized(_this));
+    _this.open = _this.open.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(EditComponent, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.loadCar();
-    }
-  }, {
     key: "loadCar",
     value: function loadCar() {
       var _this2 = this;
@@ -42637,6 +42633,7 @@ function (_Component) {
   }, {
     key: "open",
     value: function open() {
+      this.loadCar();
       this.setState({
         showModal: true
       });
@@ -42674,7 +42671,7 @@ function (_Component) {
         onClick: this.saveCar
       }, "Save"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
         variant: "dark",
-        onClick: this.close()
+        onClick: this.close
       }, "Cancel"))));
     }
   }]);
@@ -42795,15 +42792,14 @@ function (_React$Component) {
     key: "editCar",
     value: function editCar(id) {
       window.localStorage.setItem("carId", id);
-      this.props.history.push('/edit');
+      this.editComponent.current.open();
     }
   }, {
     key: "addCar",
     value: function addCar() {
       window.localStorage.removeItem("carId");
-      this.props.history.push('/add');
-    } // Another comment
-
+      this.addComponent.current.open();
+    }
   }, {
     key: "render",
     value: function render() {
@@ -42814,10 +42810,12 @@ function (_React$Component) {
       }, "Car Details"), React.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
         variant: "primary",
         onClick: function onClick() {
-          return _this5.addComponent.current.open();
+          return _this5.addCar();
         }
       }, " Add Car"), React.createElement(_AddComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {
         ref: this.addComponent
+      }), React.createElement(_EditComponent__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        ref: this.editComponent
       }), React.createElement(react_bootstrap_Table__WEBPACK_IMPORTED_MODULE_2__["default"], {
         striped: true,
         bordered: true,

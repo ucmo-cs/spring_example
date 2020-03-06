@@ -16,10 +16,8 @@ class EditComponent extends Component {
         }
         this.saveCar = this.saveCar.bind(this);
         this.loadCar = this.loadCar.bind(this);
-    }
-
-    componentDidMount() {
-        this.loadCar();
+        this.close = this.close.bind(this);
+        this.open = this.open.bind(this);
     }
 
     loadCar() {
@@ -53,6 +51,7 @@ class EditComponent extends Component {
     }
 
     open() {
+        this.loadCar();
         this.setState({ showModal: true });
     }
 
@@ -61,7 +60,7 @@ class EditComponent extends Component {
     }
 
     render() {
-        return (
+       return (
             <Modal show={this.state.showModal}>
                 <Modal.Header>
                     <Modal.Title>Edit Car</Modal.Title>
@@ -86,7 +85,7 @@ class EditComponent extends Component {
                     </Form.Group>
 
                     <Button variant="primary" disabled={!this.validate()} onClick={this.saveCar}>Save</Button>
-                    <Button variant="dark" onClick={this.close()}>Cancel</Button>
+                    <Button variant="dark" onClick={this.close}>Cancel</Button>
                 </Form>
                 </Modal.Body>
             </Modal>

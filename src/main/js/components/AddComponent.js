@@ -15,6 +15,8 @@ class AddComponent extends Component{
             message: null
         }
         this.saveCar = this.saveCar.bind(this);
+        this.close = this.close.bind(this);
+        this.open = this.open.bind(this);
     }
 
     saveCar = (e) => {
@@ -52,17 +54,17 @@ class AddComponent extends Component{
                 <Form>
                     <Form.Group>
                     <Form.Label>Make:</Form.Label>
-                        <Form.Control type="text" placeholder="Make" name="make" value={this.state.make} onChange={this.onChange} required/>
+                        <Form.Control type="text" name="make" value={this.state.make} onChange={this.onChange} required/>
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>Model:</Form.Label>
-                        <Form.Control placeholder="Model" name="model" value={this.state.model} onChange={this.onChange} required/>
+                        <Form.Control name="model" value={this.state.model} onChange={this.onChange} required/>
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>Year:</Form.Label>
-                        <Form.Control placeholder="1999" name="year" value={this.state.year} onChange={this.onChange} required/>
+                        <Form.Control name="year" value={this.state.year} onChange={this.onChange} required/>
                         <font color="red">{!this.validate() ? 'Year Error: Year must be >= 1900 and <=2020' : ""}</font>
                     </Form.Group>
 

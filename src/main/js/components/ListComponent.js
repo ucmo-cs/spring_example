@@ -47,21 +47,21 @@ class ListComponent extends React.Component {
 
     editCar(id) {
         window.localStorage.setItem("carId", id);
-        this.props.history.push('/edit');
+        this.editComponent.current.open();
     }
 
     addCar() {
         window.localStorage.removeItem("carId");
-        this.props.history.push('/add');
+        this.addComponent.current.open();
     }
-// Another comment
-    
+
     render() {
         return (
             <div>
                 <h2 className="text-center">Car Details</h2>
-                <Button variant="primary" onClick={() => this.addComponent.current.open()}> Add Car</Button>
+                <Button variant="primary" onClick={() => this.addCar()}> Add Car</Button>
                 <AddComponent ref={this.addComponent}/>
+                <EditComponent ref={this.editComponent}/>
                 <Table striped bordered hover>
                     <thead>
                     <tr>
