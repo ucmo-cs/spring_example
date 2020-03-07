@@ -42654,10 +42654,17 @@ function (_Component) {
       return _this.setState(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()({}, e.target.name, e.target.value));
     });
 
+    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this), "onChangeYear", function (e) {
+      var _this$setState2;
+
+      return _this.setState((_this$setState2 = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_this$setState2, e.target.name, e.target.value), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_this$setState2, "everFocusedYear", true), _this$setState2));
+    });
+
     _this.state = {
       make: '',
       model: '',
       year: '',
+      everFocusedYear: false,
       message: null
     };
     _this.saveCar = _this.saveCar.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
@@ -42677,19 +42684,24 @@ function (_Component) {
     key: "open",
     value: function open() {
       this.setState({
-        showModal: true
+        showModal: true,
+        make: '',
+        model: '',
+        year: '',
+        everFocusedYear: false
       });
     }
   }, {
     key: "validate",
     value: function validate() {
-      return this.state.year >= 1900 && this.state.year <= 2020;
+      if (!this.state.everFocusedYear) return true;else return this.state.year >= 1900 && this.state.year <= 2020;
     }
   }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        show: this.state.showModal
+        show: this.state.showModal,
+        onHide: this.close
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_11__["default"].Header, null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_11__["default"].Title, null, "Add Car")), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_11__["default"].Body, null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_10__["default"], null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_10__["default"].Group, null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_10__["default"].Label, null, "Make:"), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_10__["default"].Control, {
         type: "text",
         name: "make",
@@ -42704,7 +42716,7 @@ function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_10__["default"].Group, null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_10__["default"].Label, null, "Year:"), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_10__["default"].Control, {
         name: "year",
         value: this.state.year,
-        onChange: this.onChange,
+        onChange: this.onChangeYear,
         required: true
       }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("font", {
         color: "red"
@@ -42854,7 +42866,8 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"], {
-        show: this.state.showModal
+        show: this.state.showModal,
+        onHide: this.close
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"].Header, null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"].Title, null, "Edit Car")), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"].Body, null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_9__["default"], null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_9__["default"].Group, null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_9__["default"].Label, null, "Make:"), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_9__["default"].Control, {
         placeholder: "Make",
         name: "make",

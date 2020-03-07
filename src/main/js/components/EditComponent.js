@@ -62,7 +62,7 @@ class EditComponent extends Component {
 
     render() {
        return (
-            <Modal show={this.state.showModal}>
+            <Modal show={this.state.showModal} onHide={this.close}>
                 <Modal.Header>
                     <Modal.Title>Edit Car</Modal.Title>
                 </Modal.Header>

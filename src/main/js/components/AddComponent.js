@@ -12,6 +12,7 @@ class AddComponent extends Component{
             make: '',
             model: '',
             year: '',
+            everFocusedYear: false,
             message: null
         }
         this.saveCar = this.saveCar.bind(this);
@@ -33,21 +34,32 @@ class AddComponent extends Component{
     onChange = (e) =>
         this.setState({ [e.target.name]: e.target.value });
 
+    onChangeYear = (e) =>
+        this.setState({ [e.target.name]: e.target.value ,
+                              everFocusedYear: true});
+
     close() {
         this.setState({ showModal: false });
     }
 
     open() {
-        this.setState({ showModal: true });
+        this.setState({ showModal: true,
+                              make: '',
+                              model: '',
+                              year: '',
+                              everFocusedYear: false});
     }
 
     validate() {
-        return this.state.year >= 1900 && this.state.year <=2020;
+        if (!this.state.everFocusedYear)
+            return true;
+        else
+            return this.state.year >= 1900 && this.state.year <=2020;
     }
 
     render() {
         return(
-            <Modal show={this.state.showModal}>
+            <Modal show={this.state.showModal} onHide={this.close}>
                 <Modal.Header>
                 <Modal.Title>Add Car</Modal.Title>
                 </Modal.Header>
@@ -65,7 +77,7 @@ class AddComponent extends Component{
 
                     <Form.Group>
                         <Form.Label>Year:</Form.Label>
-                        <Form.Control name="year" value={this.state.year} onChange={this.onChange} required/>
+                        <Form.Control name="year" value={this.state.year} onChange={this.onChangeYear} required/>
                         <font color="red">{!this.validate() ? 'Year Error: Year must be >= 1900 and <=2020' : ""}</font>
                     </Form.Group>
 
