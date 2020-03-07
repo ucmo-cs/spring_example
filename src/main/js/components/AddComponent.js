@@ -23,11 +23,12 @@ class AddComponent extends Component{
         e.preventDefault();
         let car = {make: this.state.make, model: this.state.model, year: this.state.year};
         ApiService.addCar(car)
+            .then(() => ApiService.fetchCars())
             .then(res => {
-                this.setState({message : 'Car added successfully.'});
+                this.props.reloadCarList(res.data);
                 this.close();
             });
-    }
+     }
 
     onChange = (e) =>
         this.setState({ [e.target.name]: e.target.value });

@@ -26,6 +26,7 @@ public class CarController {
     public List<Car> listCars(){
         List<Car> list = new ArrayList<>();
         carDao.findAll().iterator().forEachRemaining(list::add);
+        System.out.println("Called listCars()"+list);
         return list;
     }
 

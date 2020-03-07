@@ -40,10 +40,11 @@ class EditComponent extends Component {
         e.preventDefault();
         let car = {id: this.state.id, make: this.state.make, model: this.state.model, year: this.state.year};
         ApiService.editCar(car)
+            .then(() => ApiService.fetchCars())
             .then(res => {
-                this.setState({message : 'Car added successfully.'});
+                this.props.reloadCarList(res.data);
                 this.close();
-            });
+             })
     }
 
     close() {

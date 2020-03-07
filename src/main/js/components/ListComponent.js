@@ -29,11 +29,8 @@ class ListComponent extends React.Component {
             })
     }
 
-    reloadCarList() {
-        ApiService.fetchCars()
-            .then((res) => {
-                this.setState({cars: res.data.result})
-            });
+    reloadCarList(cars) {
+        this.setState({cars: cars})
     }
 
     deleteCar(carId) {
@@ -60,8 +57,8 @@ class ListComponent extends React.Component {
             <div>
                 <h2 className="text-center">Car Details</h2>
                 <Button variant="primary" onClick={() => this.addCar()}> Add Car</Button>
-                <AddComponent ref={this.addComponent}/>
-                <EditComponent ref={this.editComponent}/>
+                <AddComponent reloadCarList={this.reloadCarList} ref={this.addComponent}/>
+                <EditComponent reloadCarList={this.reloadCarList} ref={this.editComponent}/>
                 <Table striped bordered hover>
                     <thead>
                     <tr>
