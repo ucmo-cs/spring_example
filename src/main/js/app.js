@@ -13,11 +13,6 @@ function App() {
 	);
 }
 
-const style = {
-	color: 'red',
-	margin: '10px'
-}
-
 export default App;
 
 ReactDOM.render(

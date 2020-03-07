@@ -5,6 +5,11 @@ import AddComponent from "./AddComponent";
 import EditComponent from "./EditComponent";
 const React = require('react');
 
+const style = {
+    color: 'red',
+    margin: '10px'
+}
+
 class ListComponent extends React.Component {
 
     constructor(props) {
@@ -55,6 +60,7 @@ class ListComponent extends React.Component {
     render() {
         return (
             <div>
+                <h1 className="text-center" style={style}>React Car Application</h1>
                 <h2 className="text-center">Car Details</h2>
                 <Button variant="primary" onClick={() => this.addCar()}> Add Car</Button>
                 <AddComponent reloadCarList={this.reloadCarList} ref={this.addComponent}/>

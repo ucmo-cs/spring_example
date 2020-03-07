@@ -42571,10 +42571,6 @@ function App() {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ListComponent__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 }
 
-var style = {
-  color: 'red',
-  margin: '10px'
-};
 /* harmony default export */ __webpack_exports__["default"] = (App);
 ReactDOM.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('react'));
 
@@ -42817,7 +42813,7 @@ function (_Component) {
       id: '',
       make: '',
       model: '',
-      year: ''
+      year: 1999
     };
     _this.saveCar = _this.saveCar.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     _this.loadCar = _this.loadCar.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
@@ -42943,6 +42939,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
+var style = {
+  color: 'red',
+  margin: '10px'
+};
+
 var ListComponent =
 /*#__PURE__*/
 function (_React$Component) {
@@ -43021,7 +43022,10 @@ function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      return React.createElement("div", null, React.createElement("h2", {
+      return React.createElement("div", null, React.createElement("h1", {
+        className: "text-center",
+        style: style
+      }, "React Car Application"), React.createElement("h2", {
         className: "text-center"
       }, "Car Details"), React.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_7__["default"], {
         variant: "primary",

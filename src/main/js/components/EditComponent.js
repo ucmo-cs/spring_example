@@ -12,7 +12,7 @@ class EditComponent extends Component {
             id: '',
             make: '',
             model: '',
-            year: '',
+            year: 1999,
         }
         this.saveCar = this.saveCar.bind(this);
         this.loadCar = this.loadCar.bind(this);
