@@ -1,5 +1,5 @@
-# spring_example
-Simple Spring Boot/React Example
+# spring_example_modal
+Simple Spring Boot/React Example with Modal forms
 
 This is a simple Spring Boot backend, React frontend example.
 
@@ -7,6 +7,8 @@ The root page "/" is handled by a standard Spring Web Controller, HomeController
 
 The React application running on that page uses a Spring REST Controller with a "/cars" mapping to access the
 API for handling the Car objects in the application.
+The React application makes use of the React-Bootstrap package for
+components and styling, and uses Modal dialogs for editing of the car data.
 
 # Spring Packages Used:
 
@@ -24,7 +26,7 @@ API for handling the Car objects in the application.
 * Webpack
 * Axios
 * React
-* react-router-dom
+* React-Bootstrap
 
 # Frontend Build
 
