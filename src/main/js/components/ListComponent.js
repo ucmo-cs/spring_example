@@ -49,6 +49,10 @@ class ListComponent extends React.Component {
         window.localStorage.removeItem("carId");
         this.props.history.push('/add');
     }
+
+    showMe() {
+        this.props.history.push('/show_me');
+    }
 // Another comment
     
     render() {
@@ -56,6 +60,7 @@ class ListComponent extends React.Component {
             <div>
                 <h2 className="text-center">Car Details</h2>
                 <button className="btn btn-danger" onClick={() => this.addCar()}> Add Car</button>
+                <button className="btn btn-danger" onClick={() => this.showMe()}> Show Me</button>
                 <table className="table table-striped">
                     <thead>
                     <tr>

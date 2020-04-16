@@ -16,6 +16,10 @@ function App() {
 						<Route path="/list" component={ListComponent} />
 						<Route path="/add" component={AddComponent} />
 						<Route path="/edit" component={EditComponent} />
+                        <Route path='/show_me' component={() => {
+                            location.href = '/show_me';
+                            return null;
+                        }}/>
 					</Switch>
 				</div>
 			</Router>

@@ -38074,6 +38074,12 @@ function App() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/edit",
     component: _components_EditComponent__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/show_me",
+    component: function component() {
+      location.href = '/show_me';
+      return null;
+    }
   })))));
 }
 
@@ -38475,6 +38481,11 @@ function (_React$Component) {
     value: function addCar() {
       window.localStorage.removeItem("carId");
       this.props.history.push('/add');
+    }
+  }, {
+    key: "showMe",
+    value: function showMe() {
+      this.props.history.push('/show_me');
     } // Another comment
 
   }, {
@@ -38489,7 +38500,12 @@ function (_React$Component) {
         onClick: function onClick() {
           return _this5.addCar();
         }
-      }, " Add Car"), React.createElement("table", {
+      }, " Add Car"), React.createElement("button", {
+        className: "btn btn-danger",
+        onClick: function onClick() {
+          return _this5.showMe();
+        }
+      }, " Show Me"), React.createElement("table", {
         className: "table table-striped"
       }, React.createElement("thead", null, React.createElement("tr", null, React.createElement("th", null, "Id"), React.createElement("th", null, "Make"), React.createElement("th", null, "Model"), React.createElement("th", null, "Year"))), React.createElement("tbody", null, this.state.cars.map(function (car) {
         return React.createElement("tr", {
@@ -38534,7 +38550,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 
-var CAR_API_BASE_URL = 'http://localhost:8080/cars';
+var CAR_API_BASE_URL = '/cars';
 
 var ApiService =
 /*#__PURE__*/
