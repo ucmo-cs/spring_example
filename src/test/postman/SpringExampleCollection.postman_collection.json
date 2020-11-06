@@ -85,7 +85,7 @@
 							"    pm.expect(jsData.id).is.to.equal(1); ",
 							"    pm.expect(jsData.make).is.to.equal(\"Ford\"); ",
 							"    pm.expect(jsData.model).is.to.equal(\"Mustang\"); ",
-							"    pm.expect(jsData.year).is.to.equal(1998); ",
+							"    pm.expect(jsData.year).is.to.equal(1997); ",
 							"})",
 							"",
 							""
