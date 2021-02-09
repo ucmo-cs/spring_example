@@ -135,7 +135,7 @@
 							"    pm.expect(jsData.id).is.not.null; ",
 							"    pm.expect(jsData.make).is.to.equal(\"Rolls Royce\"); ",
 							"    pm.expect(jsData.model).is.to.equal(\"Silver Ghost\"); ",
-							"    pm.expect(jsData.year).is.to.equal(1907); ",
+							"    pm.expect(jsData.year).is.to.equal(1906); ",
 							"})",
 							"",
 							""
