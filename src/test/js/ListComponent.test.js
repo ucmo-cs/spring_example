@@ -46,6 +46,36 @@ describe('List Component Test Suite', () => {
         expect(screen.getByText("CRV")).toBeInTheDocument;
         expect(screen.getByText("2018")).toBeInTheDocument;
     });
-
+    it('List Component Edit Test', async () => {
+        // Define a history object that we can pass to the component under
+        // test, since there React Router is not doing this for us in
+        // unit test.
+        let pushStr = undefined;
+        let history = {
+            push: (str) => {pushStr = str}
+        }
+        // Render the component with React Test Library,
+        render(<ListComponent  history={history}/>);
+        // Wait for the mocked API call to finish
+        await waitFor(() => expect(listCount).toBe(3));
+        fireEvent.click(screen.getAllByText('Edit')[0])
+        expect(window.localStorage.getItem("carId")).toBe("1");
+        expect(pushStr).toBe('/edit');
+    });
+    it('List Component Add Test', async () => {
+        // Define a history object that we can pass to the component under
+        // test, since there React Router is not doing this for us in
+        // unit test.
+        let pushStr = undefined;
+        let history = {
+            push: (str) => {pushStr = str}
+        }
+        // Render the component with React Test Library,
+        render(<ListComponent  history={history}/>);
+        // Wait for the mocked API call to finish
+        await waitFor(() => expect(listCount).toBe(4));
+        fireEvent.click(screen.getByText('Add Car'));
+        expect(pushStr).toBe('/add');
+    });
 });
 
