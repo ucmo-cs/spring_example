@@ -53,7 +53,7 @@ public class CarControllerTest {
         List<String> dbNames = StreamSupport.stream(carController.listCars().spliterator(), false)
                 .map(Car::getMake)
                 .collect(Collectors.toList());
-        assertThat(dbNames, containsInAnyOrder("Ford", "Acura", "Honda"));
+        assertThat(dbNames, containsInAnyOrder("Ford", "Acura", "Honda1"));
     }
 
     @Test
