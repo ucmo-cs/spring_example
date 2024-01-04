@@ -1,10 +1,10 @@
 {
-  "name": "spring-data-rest-and-reactjs",
-  "version": "0.1.0",
-  "description": "Demo of ReactJS + Spring Data REST",
+  "name": "spring-reactjs-cars",
+  "version": "0.2.0",
+  "description": "Car Demo of ReactJS + Spring",
   "repository": {
     "type": "git",
-    "url": "git@github.com:spring-guides/tut-react-and-spring-data-rest.git"
+    "url": "git@github.com:markgrebe/spring_example.git"
   },
   "keywords": [
     "rest",
@@ -13,12 +13,9 @@
     "data",
     "react"
   ],
-  "author": "Greg L. Turnquist",
+  "author": "Mark Grebe",
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/spring-guides/tut-react-and-spring-data-rest/issues"
-  },
-  "homepage": "https://github.com/spring-guides/tut-react-and-spring-data-rest",
+  "homepage": "https://github.com/markgrebe/spring_example",
   "dependencies": {
     "axios": "^1.6.3",
     "react": "^18.2.0",
