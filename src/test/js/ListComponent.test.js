@@ -1,4 +1,6 @@
 import React from 'react'
+import * as router from 'react-router'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import ListComponent from '../../main/js/components/ListComponent'
 import { ApiService, listCount, deleteCount } from '../../main/js/services/ApiService';
@@ -16,9 +18,14 @@ describe('Example test suite', () => {
 });
 
 describe('List Component Test Suite', () => { 
+    const navigate = jest.fn();
+    beforeEach(() => {
+        jest.spyOn(router, 'useNavigate').mockImplementation(() => navigate)
+    })
+
     it('List Component Display Test', async () => {
         // Render the component with React Test Library,
-        render(<ListComponent/>);
+        render(<Router> <ListComponent/> </Router>);
         // Wait for the mocked API call to finish
         await waitFor(() => expect(listCount).toBe(1));
         // Make sure the two cars we expect to be in the table are there.
@@ -31,7 +38,7 @@ describe('List Component Test Suite', () => {
     });
     it('List Component Delete Test', async () => {
         // Render the component with React Test Library,
-        render(<ListComponent/>);
+        render(<Router> <ListComponent/> </Router>);
         // Wait for the mocked API call to finish
         await waitFor(() => expect(listCount).toBe(2));
         // Click the delete button for the first row.
@@ -47,35 +54,21 @@ describe('List Component Test Suite', () => {
         expect(screen.getByText("2018")).toBeInTheDocument;
     });
     it('List Component Edit Test', async () => {
-        // Define a history object that we can pass to the component under
-        // test, since there React Router is not doing this for us in
-        // unit test.
-        let pushStr = undefined;
-        let history = {
-            push: (str) => {pushStr = str}
-        }
         // Render the component with React Test Library,
-        render(<ListComponent  history={history}/>);
+        render(<Router> <ListComponent/> </Router>);
         // Wait for the mocked API call to finish
         await waitFor(() => expect(listCount).toBe(3));
         fireEvent.click(screen.getAllByText('Edit')[0])
         expect(window.localStorage.getItem("carId")).toBe("1");
-        expect(pushStr).toBe('/edit');
+        expect(navigate).toHaveBeenCalledWith('/edit');
     });
     it('List Component Add Test', async () => {
-        // Define a history object that we can pass to the component under
-        // test, since there React Router is not doing this for us in
-        // unit test.
-        let pushStr = undefined;
-        let history = {
-            push: (str) => {pushStr = str}
-        }
         // Render the component with React Test Library,
-        render(<ListComponent  history={history}/>);
+        render(<Router> <ListComponent/> </Router>);
         // Wait for the mocked API call to finish
         await waitFor(() => expect(listCount).toBe(4));
         fireEvent.click(screen.getByText('Add Car'));
-        expect(pushStr).toBe('/add');
+        expect(navigate).toHaveBeenCalledWith('/add');
     });
 });
 
