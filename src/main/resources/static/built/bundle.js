@@ -4599,11 +4599,6 @@ function ListComponent(props) {
       setCars(initCars);
     });
   }, []);
-  var reloadCarList = function reloadCarList() {
-    _services_ApiService__WEBPACK_IMPORTED_MODULE_1__["default"].fetchCars().then(function (res) {
-      setCars(res.data.result);
-    });
-  };
   var deleteCar = function deleteCar(carId) {
     _services_ApiService__WEBPACK_IMPORTED_MODULE_1__["default"].deleteCar(carId).then(function (res) {
       setMessage('Car deleted successfully.');

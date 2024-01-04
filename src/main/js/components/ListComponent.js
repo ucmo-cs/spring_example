@@ -19,13 +19,6 @@ function ListComponent(props) {
             })
     },[]);
 
-    const reloadCarList = () => {
-        ApiService.fetchCars()
-            .then((res) => {
-                setCars(res.data.result);
-            });
-    }
-
     const deleteCar = (carId) => {
         ApiService.deleteCar(carId)
             .then(res => {
