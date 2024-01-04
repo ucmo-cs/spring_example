@@ -1,4 +1,4 @@
-# spring_example*
+# spring_example
 Simple Spring Boot/React Example
 
 This is a simple Spring Boot backend, React frontend example.
