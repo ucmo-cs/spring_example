@@ -49,7 +49,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/cars/",
+					"raw": "localhost:8080/cars",
 					"host": [
 						"localhost"
 					],
