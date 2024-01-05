@@ -27,7 +27,9 @@ jobs:
         java-version: 21
         distribution: 'oracle'
     - name: Build project with Maven
-      run: mvn -B -f pom.xml verify
+      env:
+        JASYPT_PW: ${{ secrets.JASYPT_PW }}
+      run: mvn -B -f pom.xml -Djasypt.encryptor.password=$JASYPT_PW verify
     - name: Start Spring Boot server
       env:
         JASYPT_PW: ${{ secrets.JASYPT_PW }}
