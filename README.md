@@ -8,7 +8,9 @@ The root page "/" is handled by a standard Spring Web Controller, HomeController
 The React application running on that page uses a Spring REST Controller with a "/cars" mapping to access the
 API for handling the Car objects in the application.
 
-Version 0.2 updates to Spring 3.x, React 18, MySQL 8.x, and also updates the other relevant packages to current versions.
+Version 0.2 updates to Java 20, Spring 3.x, React 18, MySQL 8.x, and also updates the other relevant packages to current versions.
+
+It also changes the React frontend to use function components as opposed to class components.
 
 It also addds encryption of database passwords.  To run the application now, use the following command line:
 
