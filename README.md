@@ -8,6 +8,14 @@ The root page "/" is handled by a standard Spring Web Controller, HomeController
 The React application running on that page uses a Spring REST Controller with a "/cars" mapping to access the
 API for handling the Car objects in the application.
 
+Version 0.2 updates to Spring 3.x, React 18, MySQL 8.x, and also updates the other relevant packages to current versions.
+
+It also addds encryption of database passwords.  To run the application now, use the following command line:
+
+mvn clean -Djasypt.encryptor.password=xxxxx spring-boot:run
+
+Where xxxxx is a secret password, which may be obtained from Dr. Grebe.  This secret is also stored as a Github Actions secret in this repo, allowing Github Actions to connect to the database.
+
 # Spring Packages Used:
 
 * Spring Boot
