@@ -28,7 +28,7 @@
 							"    pm.expect(jsData[0].id).is.to.equal(1); ",
 							"    pm.expect(jsData[0].make).is.to.equal(\"Ford\"); ",
 							"    pm.expect(jsData[0].model).is.to.equal(\"Mustang\"); ",
-							"    pm.expect(jsData[0].year).is.to.equal(1997); ",
+							"    pm.expect(jsData[0].year).is.to.equal(1998); ",
 							"    pm.expect(jsData[1].id).is.to.equal(2); ",
 							"    pm.expect(jsData[1].make).is.to.equal(\"Acura\"); ",
 							"    pm.expect(jsData[1].model).is.to.equal(\"ILX\"); ",
@@ -49,14 +49,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/cars/",
+					"raw": "localhost:8080/cars",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"cars",
-						""
+						"cars"
 					]
 				}
 			},
