@@ -15,7 +15,7 @@ jobs:
     name: Build on Java 21 and Test
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/cache@v1
+    - uses: actions/cache@v3
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-jdk21-${{ hashFiles('**/pom.xml') }}
